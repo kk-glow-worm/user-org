@@ -1,7 +1,8 @@
 import React from "react";
+import { UserOrg } from "./UserOrg";
 
 function App() {
-  return <div>Uer org</div>;
+  return <UserOrg />;
 }
 
 export default App;
