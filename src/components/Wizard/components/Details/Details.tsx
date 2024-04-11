@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import { WizardContext } from "../../../../context";
+import { WizardContext, UserDetailsContext } from "../../../../context";
 import { Step } from "../../../../hooks";
 
 export const Details = () => {
   const { setStep } = useContext(WizardContext);
+  const { firstName } = useContext(UserDetailsContext);
 
   return (
     <div>
-      details
+      {firstName}
       <button
         onClick={() => {
           setStep(Step.Edit);

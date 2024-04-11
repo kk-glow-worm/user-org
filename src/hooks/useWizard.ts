@@ -1,24 +1,37 @@
-import { useEffect, useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
+import { UserDetailsContext } from "../context";
+/*******************************************
+ helpers
+ *******************************************/
 export enum Step {
   Edit,
-  Confirm,
   Completed,
-  Landing,
 }
 
-export const useInitWizard = (
-  isCompleted: boolean,
-  setStep: (step: Step) => void,
-) => {
-  useEffect(() => {
-    if (!isCompleted) {
+const initStep =
+  (
+    isLoading: boolean,
+    isMissingUserDetails: boolean,
+    setStep: (step: Step) => void,
+  ) =>
+  () => {
+    if (!isLoading && isMissingUserDetails) {
       setStep(Step.Edit);
     }
-  }, [isCompleted, setStep]);
+  };
+/*******************************************
+ hooks
+ *******************************************/
+export const useInitWizard = (setStep: (step: Step) => void) => {
+  const { isLoading, isMissingUserDetails } = useContext(UserDetailsContext);
+
+  useEffect(initStep(isLoading, isMissingUserDetails, setStep), [
+    isMissingUserDetails,
+    isLoading,
+  ]);
 };
 export const useWizard = () => {
-  const [step, setStep] = useState(Step.Landing);
+  const [step, setStep] = useState(Step.Completed);
 
   return {
     step,
