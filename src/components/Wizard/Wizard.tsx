@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { WizardContext } from "../../context";
-import { Step } from "../../hooks";
-import { Edit, Details } from "./components";
+import { WizardContext } from "../../context/WizardContext";
+import { Step } from "../../hooks/useWizard";
+import { Edit } from "./components/Edit";
+import { Details } from "./components/Details";
 
 export const Wizard = () => {
   const { step } = useContext(WizardContext);
@@ -10,8 +11,6 @@ export const Wizard = () => {
     case Step.Edit:
       return <Edit />;
     case Step.Completed:
-      return <Details />;
-    default:
       return <Details />;
   }
 };

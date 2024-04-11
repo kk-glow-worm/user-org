@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { UserDetailsContext } from "../context";
+import { UserDetailsContext } from "../../context/UserDetailsContext";
+import { SetStep } from "../../context/WizardContext";
 /*******************************************
  helpers
  *******************************************/
@@ -9,11 +10,7 @@ export enum Step {
 }
 
 const initStep =
-  (
-    isLoading: boolean,
-    isMissingUserDetails: boolean,
-    setStep: (step: Step) => void,
-  ) =>
+  (isLoading: boolean, isMissingUserDetails: boolean, setStep: SetStep) =>
   () => {
     if (!isLoading && isMissingUserDetails) {
       setStep(Step.Edit);
@@ -22,7 +19,7 @@ const initStep =
 /*******************************************
  hooks
  *******************************************/
-export const useInitWizard = (setStep: (step: Step) => void) => {
+export const useInitWizard = (setStep: SetStep) => {
   const { isLoading, isMissingUserDetails } = useContext(UserDetailsContext);
 
   useEffect(initStep(isLoading, isMissingUserDetails, setStep), [
@@ -38,3 +35,7 @@ export const useWizard = () => {
     setStep,
   };
 };
+/*******************************************
+ export for testing
+ *******************************************/
+export { initStep };

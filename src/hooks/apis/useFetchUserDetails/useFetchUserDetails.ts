@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { fetcher } from "../../helpers/swr";
+import { fetcher } from "../../../helpers/swr";
 import { useMemo } from "react";
 import { isEmpty } from "lodash";
 /*******************************************
@@ -18,7 +18,11 @@ const hasEmptyValue = (firstName: string, divisionID: string) => () =>
  *******************************************/
 export const useFetchUserDetails = () => {
   // fetch user details
-  const { data: {firstName='', divisionID= ''} = {}, isLoading } = useSWR(swrKey, fetcher, fetchOnce);
+  const { data: { firstName = "", divisionID = "" } = {}, isLoading } = useSWR(
+    swrKey,
+    fetcher,
+    fetchOnce,
+  );
   // parse
   const isMissingUserDetails = useMemo(hasEmptyValue(firstName, divisionID), [
     firstName,
@@ -32,3 +36,7 @@ export const useFetchUserDetails = () => {
     isMissingUserDetails,
   };
 };
+/*******************************************
+ export for testing
+ *******************************************/
+export { hasEmptyValue };

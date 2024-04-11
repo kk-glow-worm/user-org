@@ -1,5 +1,6 @@
 import { UserOrg } from "./UserOrg";
-import { UserDetailsProvider, WizardProvider } from "../context";
+import { WizardProvider } from "../context/WizardContext";
+import { UserDetailsProvider } from "../context/UserDetailsContext";
 import React from "react";
 
 function App() {

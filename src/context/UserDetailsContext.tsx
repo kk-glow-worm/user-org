@@ -1,9 +1,9 @@
 import { createContext, ReactNode } from "react";
-import { useFetchUserDetails } from "../hooks/apis";
+import { useFetchUserDetails } from "../hooks/apis/useFetchUserDetails";
 /*******************************************
  context
  *******************************************/
-interface IUserDetails {
+export interface IUserDetails {
   firstName: string;
   divisionID: string;
   isLoading: boolean;

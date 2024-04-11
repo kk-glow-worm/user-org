@@ -1,11 +1,15 @@
-import { WizardContext, UserDetailsContext } from "../../context";
-import { Step, useInitWizard } from "../../hooks";
-import { Wizard, Details } from "../Wizard";
+import { WizardContext } from "../../context/WizardContext";
+import { UserDetailsContext } from "../../context/UserDetailsContext";
+import { Step, useInitWizard } from "../../hooks/useWizard";
+import { Wizard } from "../Wizard";
+import { Details } from "../Wizard/components/Details";
 import { useContext } from "react";
 /*******************************************
  helpers
  *******************************************/
-const shallShowEdit = (
+export const loaderTestID = "@user-org/loading";
+export const userOrgComponentTestID = "@user-org";
+const shallShowDetails = (
   isLoading: boolean,
   isMissingUserDetails: boolean,
   step: Step,
@@ -22,14 +26,25 @@ export const UserOrg = () => {
   // init wizard to step Edit if user info is not complete
   useInitWizard(setStep);
 
+  if (isLoading) {
+    return (
+      <div data-testid={userOrgComponentTestID}>
+        <div data-testid={loaderTestID}>loading</div>
+      </div>
+    );
+  }
+
   return (
-    <>
-      {isLoading && <div>loading</div>}
-      {shallShowEdit(isLoading, isMissingUserDetails, step) ? (
+    <div data-testid={userOrgComponentTestID}>
+      {shallShowDetails(isLoading, isMissingUserDetails, step) ? (
         <Details />
       ) : (
         <Wizard />
       )}
-    </>
+    </div>
   );
 };
+/*******************************************
+ export for testing
+ *******************************************/
+export { shallShowDetails };

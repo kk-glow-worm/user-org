@@ -1,6 +1,6 @@
 import { useSWRConfig } from "swr";
 import { ScopedMutator } from "swr/_internal";
-import { swrKey } from "./useFetchUserDetails";
+import { swrKey } from "../useFetchUserDetails/useFetchUserDetails";
 /*******************************************
  helpers
  *******************************************/
@@ -22,3 +22,7 @@ export const usePostUserDetails = () => {
     updateData: mutateData(mutate),
   };
 };
+/*******************************************
+ export for testing
+ *******************************************/
+export { mutateData };
