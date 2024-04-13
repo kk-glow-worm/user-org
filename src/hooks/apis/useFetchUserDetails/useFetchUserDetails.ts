@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { useMemo } from "react";
-import { capitalize, isEmpty } from "lodash";
+import { isEmpty } from "lodash";
 import { fetcher } from "../../../helpers/swr";
 /*******************************************
  helpers
@@ -30,7 +30,7 @@ export const useFetchUserDetails = () => {
   ]);
 
   return {
-    firstName: capitalize(firstName),
+    firstName,
     divisionID,
     isLoading,
     isMissingUserDetails,

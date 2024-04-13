@@ -10,6 +10,7 @@
   transition:
     background 0.2s,
     color 0.2s;
+  cursor: pointer;
 
   &:has(.input:checked) {
     background: rgb(255, 255, 255);

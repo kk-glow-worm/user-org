@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./RadioBtn.module.css";
 interface IProps {
   label: string;

@@ -1,5 +1,5 @@
 import { FormEvent, useContext, useState } from "react";
-import { defaultTo, isEmpty } from "lodash";
+import { defaultTo, isEmpty, sortBy } from "lodash";
 import { Step } from "../../../../hooks/useWizard";
 import { UserDetailsContext } from "../../../../context/UserDetailsContext";
 import { SetStep, WizardContext } from "../../../../context/WizardContext";
@@ -8,8 +8,8 @@ import {
   usePostUserDetails,
 } from "../../../../hooks/apis/usePostUserDetails";
 import { useFetchDivisions } from "../../../../hooks/apis/useFetchDivisions";
-import { RadioBtn } from "./components/RadioBtn";
 import styles from "./Edit.module.css";
+import { RadioBtn } from "./components/RadioBtn";
 /*******************************************
  helpers
  *******************************************/
@@ -79,8 +79,8 @@ export const Edit = () => {
           </p>
         )}
       </div>
-      <div>
-        {endDivisions.map(({ name, id }) => (
+      <div className={styles.divisionsSection}>
+        {sortBy(endDivisions, "name").map(({ name, id }) => (
           <RadioBtn
             label={name}
             key={id}

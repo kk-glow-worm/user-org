@@ -27,6 +27,10 @@
   font-weight: lighter;
   font-size: 14px;
 }
+.divisionsSection {
+  display: flex;
+  flex-wrap: wrap;
+}
 .btn {
   background-color: #008d96;
   color: #fff;

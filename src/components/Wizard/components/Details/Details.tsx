@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { capitalize } from "lodash";
 import { UserDetailsContext } from "../../../../context/UserDetailsContext";
 import { WizardContext, SetStep } from "../../../../context/WizardContext";
 import { Step } from "../../../../hooks/useWizard";
@@ -20,7 +21,7 @@ export const Details = () => {
   const { setStep } = useContext(WizardContext);
   const { firstName } = useContext(UserDetailsContext);
   const {
-    userDivision: { name: divisionName },
+    userDivision: { id: userDivisionID },
     directUpperIDsToTop,
     divisionsObj,
   } = useFetchDivisions();
@@ -28,15 +29,14 @@ export const Details = () => {
   return (
     <div data-testid={namespace}>
       <div className={styles.org}>
-        {directUpperIDsToTop.reverse().map((id) => (
-          <DivisionCard divisionName={divisionsObj[id].name} key={id} />
+        {[userDivisionID, ...directUpperIDsToTop].reverse().map((id) => (
+          <DivisionCard divisionName={divisionsObj[id]?.name} key={id} />
         ))}
         <div className={styles.user}>
           <button className={styles.circle} onClick={updateToEditStep(setStep)}>
-            <div className={styles.firstName}>{firstName}</div>
+            <div className={styles.firstName}>{capitalize(firstName)}</div>
             <img src={EditIcon} className={styles.edit} alt="edit" />
           </button>
-          <span className={styles.divisionName}>{divisionName}</span>
         </div>
       </div>
     </div>

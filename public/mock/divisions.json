@@ -1,26 +1,110 @@
 [
   {
     "id": "1a",
-    "name": "First Division",
+    "name": "Plant Manager",
     "directUpperDivision": "",
-    "directLowerDivisions": ["2a-1", "2a-2"]
+    "directLowerDivisions": ["2a-1", "2a-2", "2a-3", "2a-4", "2a-5"]
   },
   {
     "id": "2a-1",
-    "name": "2nd-1 Division",
+    "name": "Engineering",
     "directUpperDivision": "1a",
-    "directLowerDivisions": ["3a-1"]
+    "directLowerDivisions": ["2a-1-3a-1", "2a-1-3a-2"]
   },
   {
     "id": "2a-2",
-    "name": "2nd-2 Division",
+    "name": "Supply Chain Mgt",
+    "directUpperDivision": "1a",
+    "directLowerDivisions": ["2a-2-3a-1", "2a-2-3a-2", "2a-2-3a-3","2a-2-3a-4"]
+  },
+  {
+    "id": "2a-3",
+    "name": "Production",
+    "directUpperDivision": "1a",
+    "directLowerDivisions": ["2a-3-3a-1", "2a-3-3a-2", "2a-3-3a-3"]
+  },
+  {
+    "id": "2a-4",
+    "name": "Quality",
+    "directUpperDivision": "1a",
+    "directLowerDivisions": ["2a-4-3a-1", "2a-4-3a-2", "2a-4-3a-3"]
+  },
+  {
+    "id": "2a-5",
+    "name": "Other Functions: accounting, HR Mgt, Sales...",
     "directUpperDivision": "1a",
     "directLowerDivisions": []
   },
   {
-    "id": "3a-1",
-    "name": "3nd-1 Division",
+    "id": "2a-1-3a-1",
+    "name": "New Products",
     "directUpperDivision": "2a-1",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-1-3a-2",
+    "name": "Industrial Eng.",
+    "directUpperDivision": "2a-1",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-2-3a-1",
+    "name": "Purchasing",
+    "directUpperDivision": "2a-2",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-2-3a-2",
+    "name": "Planning",
+    "directUpperDivision": "2a-2",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-2-3a-3",
+    "name": "Warehouse & Logistics",
+    "directUpperDivision": "2a-2",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-2-3a-4",
+    "name": "Customer Service",
+    "directUpperDivision": "2a-2",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-3-3a-1",
+    "name": "Workshop 1",
+    "directUpperDivision": "2a-3",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-3-3a-2",
+    "name": "Workshop 2",
+    "directUpperDivision": "2a-3",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-3-3a-3",
+    "name": "Maintenance",
+    "directUpperDivision": "2a-3",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-4-3a-1",
+    "name": "Quality Control",
+    "directUpperDivision": "2a-4",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-4-3a-2",
+    "name": "Calibration",
+    "directUpperDivision": "2a-4",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "2a-4-3a-3",
+    "name": "Quality Engineering",
+    "directUpperDivision": "2a-4",
     "directLowerDivisions": []
   }
 ]
