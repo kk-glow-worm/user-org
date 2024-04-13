@@ -1,9 +1,9 @@
+import { render, screen } from "@testing-library/react";
 import { IWizard, SetStep, WizardContext } from "../../context/WizardContext";
 import { Step } from "../../hooks/useWizard";
-import { render, screen } from "@testing-library/react";
-import { editComponentTestID } from "./components/Edit";
 import { Wizard } from "./Wizard";
-import { detailsComponentTestID } from "./components/Details";
+import { namespace as editTestID } from "./components/Edit";
+import { namespace as detailsTestID } from "./components/Details";
 
 describe("<Wizard>", () => {
   const wizardCtx = {
@@ -20,11 +20,11 @@ describe("<Wizard>", () => {
 
   test("shows <Edit> at Step.Edit", () => {
     renderFunc(wizardCtx);
-    expect(screen.queryByTestId(editComponentTestID)).toBeInTheDocument();
+    expect(screen.queryByTestId(editTestID)).toBeInTheDocument();
   });
 
   test("shows <Edit> at Step.Completed", () => {
     renderFunc({ ...wizardCtx, step: Step.Completed });
-    expect(screen.queryByTestId(detailsComponentTestID)).toBeInTheDocument();
+    expect(screen.queryByTestId(detailsTestID)).toBeInTheDocument();
   });
 });

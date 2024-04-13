@@ -7,8 +7,8 @@ import { useContext } from "react";
 /*******************************************
  helpers
  *******************************************/
-export const loaderTestID = "@user-org/loading";
-export const userOrgComponentTestID = "@user-org";
+export const namespace = "@user-org";
+export const loaderTestID = `${namespace}/loading`;
 const shallShowDetails = (
   isLoading: boolean,
   isMissingUserDetails: boolean,
@@ -28,14 +28,14 @@ export const UserOrg = () => {
 
   if (isLoading) {
     return (
-      <div data-testid={userOrgComponentTestID}>
+      <div data-testid={namespace}>
         <div data-testid={loaderTestID}>loading</div>
       </div>
     );
   }
 
   return (
-    <div data-testid={userOrgComponentTestID}>
+    <div data-testid={namespace}>
       {shallShowDetails(isLoading, isMissingUserDetails, step) ? (
         <Details />
       ) : (

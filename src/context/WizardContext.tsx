@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from "react";
-import { Step, useWizard } from "../../hooks/useWizard";
+import { Step, useWizard } from "../hooks/useWizard";
 /*******************************************
  context
  *******************************************/

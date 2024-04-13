@@ -3,6 +3,17 @@ import { SetStep, WizardContext } from "../../../../context/WizardContext";
 import { UserDetailsContext } from "../../../../context/UserDetailsContext";
 import { Step } from "../../../../hooks/useWizard";
 import { Details, firstNameTestID, updateToEditStep } from "./Details";
+jest.mock("../../../../hooks/apis/useFetchDivisions", () => ({
+  useFetchDivisions: () => ({
+    userDivision: { name: "test 2" },
+    directUpperIDsToTop: ["1a", "0a"],
+    divisionsObj: {
+      "0a": { id: "0a", name: "top level" },
+      "1a": { id: "1a", name: "1st level" },
+      "2a": { id: "2a", name: "2nd level" },
+    },
+  }),
+}));
 describe("<Details> component", () => {
   it("renders with given context and fires the click event", async () => {
     const userCtx = {
@@ -27,6 +38,10 @@ describe("<Details> component", () => {
     // displays first name from context
     const firstNameEl = await screen.findByTestId(firstNameTestID);
     expect(firstNameEl).toHaveTextContent(userCtx.firstName);
+    // displays direct org char
+    expect(screen.getByText("top level")).toBeInTheDocument();
+    expect(screen.getByText("1st level")).toBeInTheDocument();
+    expect(screen.getByText("test 2")).toBeInTheDocument();
     // clicks on Edit btn updates step to Edit
     fireEvent.click(screen.getByText(btnName));
     expect(wizardCtx.setStep).toBeCalledWith(Step.Edit);

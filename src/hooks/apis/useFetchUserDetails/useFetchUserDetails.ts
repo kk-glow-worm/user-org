@@ -1,7 +1,7 @@
 import useSWR from "swr";
-import { fetcher } from "../../../helpers/swr";
 import { useMemo } from "react";
 import { isEmpty } from "lodash";
+import { fetcher } from "../../../helpers/swr";
 /*******************************************
  helpers
  *******************************************/

@@ -6,8 +6,8 @@ import {
 } from "../../context/UserDetailsContext";
 import { loaderTestID, shallShowDetails, UserOrg } from "./UserOrg";
 import { Step } from "../../hooks/useWizard";
-import { detailsComponentTestID } from "../Wizard/components/Details";
-import { editComponentTestID } from "../Wizard/components/Edit";
+import { namespace as detailsComponentTestID } from "../Wizard/components/Details";
+import { namespace as editComponentTestID } from "../Wizard/components/Edit";
 
 describe("<UserOrg> component", () => {
   const wizardCtx = {

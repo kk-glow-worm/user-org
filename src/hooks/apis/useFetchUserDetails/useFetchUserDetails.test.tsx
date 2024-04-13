@@ -1,6 +1,4 @@
-import swr from "swr";
 import react from "react";
-jest.mock("swr");
 jest.mock("react", () => ({ useMemo: () => false }));
 
 describe("useFetchUserDetails() ", () => {

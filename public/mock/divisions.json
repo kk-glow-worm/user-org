@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1a",
+    "name": "First Division",
+    "directUpperDivision": "",
+    "directLowerDivisions": ["2a-1", "2a-2"]
+  },
+  {
+    "id": "2a-1",
+    "name": "2nd-1 Division",
+    "directUpperDivision": "1a",
+    "directLowerDivisions": ["3a-1"]
+  },
+  {
+    "id": "2a-2",
+    "name": "2nd-2 Division",
+    "directUpperDivision": "1a",
+    "directLowerDivisions": []
+  },
+  {
+    "id": "3a-1",
+    "name": "3nd-1 Division",
+    "directUpperDivision": "2a-1",
+    "directLowerDivisions": []
+  }
+]

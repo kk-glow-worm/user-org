@@ -1,1 +1,1 @@
-export * from "../useWizard/useWizard";
+export * from "./useWizard";
