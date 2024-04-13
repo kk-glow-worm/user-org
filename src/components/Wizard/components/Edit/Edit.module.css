@@ -1,0 +1,42 @@
+.firstNameSection {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  margin-bottom: 6px;
+  display: block;
+}
+.input {
+  border: 1px solid #e6e4e3;
+  border-radius: 8px;
+  font-weight: 300;
+  color: #272631;
+  padding: 1rem;
+  &:focus {
+    border-color: #00a0aa;
+    box-shadow: 0 0 0 3px rgba(0, 160, 170, 0.2);
+    cursor: pointer;
+    outline: 0;
+    transition: all 0.3s ease-in-out;
+  }
+}
+.errorMessage {
+  color: rgb(236, 93, 86);
+  margin: 8px 0 16px 0;
+  font-weight: lighter;
+  font-size: 14px;
+}
+.btn {
+  background-color: #008d96;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  justify-content: center;
+  outline: 0;
+  border: 0;
+  padding: 13px 20px;
+  margin-top: 22px;
+  width: 100%;
+  font-size: 16px;
+}

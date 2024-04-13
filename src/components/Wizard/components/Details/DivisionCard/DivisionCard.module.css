@@ -1,0 +1,27 @@
+.org {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.divisionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+}
+.divisionName {
+  color: rgb(89, 88, 96);
+  font-weight: lighter;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.orgLine {
+  height: 30px;
+  width: 1px;
+  background-color: rgb(89, 88, 96);
+  margin: 10px 0;
+}

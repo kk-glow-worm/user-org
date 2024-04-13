@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { SetStep, WizardContext } from "../../../../context/WizardContext";
 import { UserDetailsContext } from "../../../../context/UserDetailsContext";
 import { Step } from "../../../../hooks/useWizard";
-import { Details, firstNameTestID, updateToEditStep } from "./Details";
+import { Details, updateToEditStep } from "./Details";
 jest.mock("../../../../hooks/apis/useFetchDivisions", () => ({
   useFetchDivisions: () => ({
     userDivision: { name: "test 2" },
@@ -17,7 +17,7 @@ jest.mock("../../../../hooks/apis/useFetchDivisions", () => ({
 describe("<Details> component", () => {
   it("renders with given context and fires the click event", async () => {
     const userCtx = {
-      firstName: "kyle",
+      firstName: "Kyle",
       divisionID: "1a",
       isMissingUserDetails: false,
       isLoading: false,
@@ -36,14 +36,14 @@ describe("<Details> component", () => {
       </UserDetailsContext.Provider>,
     );
     // displays first name from context
-    const firstNameEl = await screen.findByTestId(firstNameTestID);
-    expect(firstNameEl).toHaveTextContent(userCtx.firstName);
+    const firstNameEl = await screen.findByText(userCtx.firstName);
+    expect(firstNameEl).toBeInTheDocument();
     // displays direct org char
     expect(screen.getByText("top level")).toBeInTheDocument();
     expect(screen.getByText("1st level")).toBeInTheDocument();
     expect(screen.getByText("test 2")).toBeInTheDocument();
     // clicks on Edit btn updates step to Edit
-    fireEvent.click(screen.getByText(btnName));
+    fireEvent.click(firstNameEl);
     expect(wizardCtx.setStep).toBeCalledWith(Step.Edit);
   });
 });

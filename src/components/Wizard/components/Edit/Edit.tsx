@@ -9,6 +9,7 @@ import {
 } from "../../../../hooks/apis/usePostUserDetails";
 import { useFetchDivisions } from "../../../../hooks/apis/useFetchDivisions";
 import { RadioBtn } from "./components/RadioBtn";
+import styles from "./Edit.module.css";
 /*******************************************
  helpers
  *******************************************/
@@ -19,7 +20,7 @@ const divisionHTMLName = `${namespace}/division`;
 // testing IDs
 export const firstNameTestID = `${namespace}/first-name`;
 // content
-export const errorMsg = "error message";
+export const errorMsg = "First name is required";
 const handleSubmit =
   (
     setHasError: (isNotValid: boolean) => void,
@@ -55,10 +56,7 @@ export const Edit = () => {
   const { setStep } = useContext(WizardContext);
   const { firstName, divisionID } = useContext(UserDetailsContext);
   const { updateData } = usePostUserDetails();
-  const {
-    endDivisions,
-    userDivision: { name: divisionName },
-  } = useFetchDivisions();
+  const { endDivisions } = useFetchDivisions();
   const [hasError, setHasError] = useState(false);
 
   return (
@@ -67,24 +65,34 @@ export const Edit = () => {
       onSubmit={handleSubmit(setHasError, setStep, updateData)}
       data-testid={namespace}
     >
-      First name:
-      <input
-        data-testid={firstNameTestID}
-        name={firstNameHTMLName}
-        defaultValue={firstName}
-      />
-      {hasError && <p data-testid="error-message">{errorMsg}</p>}
-      Division: {divisionName}
-      {endDivisions.map(({ name, id }) => (
-        <RadioBtn
-          label={name}
-          key={id}
-          name={divisionHTMLName}
-          value={id}
-          isChecked={id === divisionID}
+      <div className={styles.firstNameSection}>
+        <label className={styles.label}>First name:</label>
+        <input
+          data-testid={firstNameTestID}
+          name={firstNameHTMLName}
+          defaultValue={firstName}
+          className={styles.input}
         />
-      ))}
-      <button type="submit">Save</button>
+        {hasError && (
+          <p data-testid="error-message" className={styles.errorMessage}>
+            {errorMsg}
+          </p>
+        )}
+      </div>
+      <div>
+        {endDivisions.map(({ name, id }) => (
+          <RadioBtn
+            label={name}
+            key={id}
+            name={divisionHTMLName}
+            value={id}
+            isChecked={id === divisionID}
+          />
+        ))}
+      </div>
+      <button type="submit" className={styles.btn}>
+        Save
+      </button>
     </form>
   );
 };

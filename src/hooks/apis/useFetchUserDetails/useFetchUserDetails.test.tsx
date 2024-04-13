@@ -15,7 +15,7 @@ describe("useFetchUserDetails() ", () => {
     jest.mock("swr", () => () => data);
     const { useFetchUserDetails } = require("./useFetchUserDetails");
     const result = useFetchUserDetails();
-    expect(result.firstName).toBe("a");
+    expect(result.firstName).toBe("A");
     expect(result.divisionID).toBe("b");
     expect(result.isMissingUserDetails).toBeFalsy();
     expect(result.isLoading).toBeFalsy();

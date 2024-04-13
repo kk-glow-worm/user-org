@@ -1,9 +1,10 @@
+import { useContext } from "react";
 import { WizardContext } from "../../context/WizardContext";
 import { UserDetailsContext } from "../../context/UserDetailsContext";
 import { Step, useInitWizard } from "../../hooks/useWizard";
 import { Wizard } from "../Wizard";
 import { Details } from "../Wizard/components/Details";
-import { useContext } from "react";
+import styles from "./UserOrg.module.css";
 /*******************************************
  helpers
  *******************************************/
@@ -35,7 +36,7 @@ export const UserOrg = () => {
   }
 
   return (
-    <div data-testid={namespace}>
+    <div data-testid={namespace} className={styles.userOrg}>
       {shallShowDetails(isLoading, isMissingUserDetails, step) ? (
         <Details />
       ) : (

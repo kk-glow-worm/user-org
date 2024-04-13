@@ -1,0 +1,23 @@
+.btn {
+  background: rgb(230, 228, 227);
+  padding: 6px 12px;
+  margin: 0 16px 16px 0;
+  border: 1px solid rgb(230, 228, 227);
+  border-radius: 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: lighter;
+  transition:
+    background 0.2s,
+    color 0.2s;
+
+  &:has(.input:checked) {
+    background: rgb(255, 255, 255);
+    border-color: rgb(0, 141, 150);
+  }
+
+  .input {
+    opacity: 0;
+    position: absolute;
+  }
+}

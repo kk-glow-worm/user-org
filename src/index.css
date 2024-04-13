@@ -1,3 +1,29 @@
 @import-normalize; /* bring in normalize.css styles */
 
 /* rest of app styles */
+@font-face {
+  font-family: sofiapro;
+  font-weight: 300;
+  src: url("./assets/sofiapro-light-webfont.04262b6f.woff2");
+}
+@font-face {
+  font-family: sofiapro;
+  font-weight: normal;
+  src: url("./assets/sofiapro-regular-webfont.7224d62a.woff2");
+}
+@font-face {
+  font-family: sofiapro;
+  font-weight: bold;
+  src: url("./assets/sofiapro-semibold-webfont.f3f52bcd.woff2");
+}
+
+body {
+  font-family: sofiapro, sans-serif;
+  margin: 0;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
