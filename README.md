@@ -1,3 +1,87 @@
+# User Org
+
+[Live demo](https://this-is-demo-only.web.app/)
+
+Highlights:
+
+1. Lean stack: React, swr, typescript, css modules
+2. Main architecture solution: swr + context + custom hooks 
+3. Intentionally tried to avoid over-engineering, avoided redux/reducer/shared components/shared values etc, e.g.if a component is not being used in multiple components, it will be kept as a private component of is parent, instead of under a folder like ui-shared-components or ui-lib. Just so to keep this demo easier and clearer to follow
+4. mutate swr local cache to simulate a POST call
+
+### Directory Layout
+
+```shell
+├── /node_modules/              # 3rd-party libraries and utilities
+├── /public/                    # Public assets
+│   ├── /mock/                  # mock json data for swr calls
+├── /src/                       # Development work
+│   ├── /assets/                # fonts
+│   ├── /components/            # UI components
+│   ├── /context/               # contexts being shared in the app
+│   ├── /helpers/               # Project assessible assets
+│   │   ├── /swr.ts             # provide a generic swr fetcher
+│   │   ├── /testHelpers.ts     # mock data being used in multiple tests
+│   ├── /hooks/                 # reusable custom hooks
+│   │   ├── /apis/              # swr related hooks
+│   │   ├── /useWizard/         # <Wizard> custom hooks
+│   ├── /index.tsx              # App config
+│   ├── /index.css              # App global styles
+│── README.md                   # Readme file
+│── package.json                # The list of project dependencies and NPM
+```
+
+## Stack
+
+### Framework
+
+* React.js
+
+### 3rd Party Libs
+
+* swr - **leaner and more responsive solution**
+* lodash - **handy util functions**
+
+### Testing
+
+* Jest
+* Testing Library
+
+### Code Quality Control
+
+* Eslint
+* Prettier
+
+### Installation
+Clone or download this project.
+
+```sh
+$ cd user-org
+$ npm install
+$ npm start
+```
+
+Go to browser: localhost:3000
+
+### Test Coverage Report
+```sh
+$ cd user-org
+$ npm install
+$ npm run coverage
+```
+![img.png](img.png)
+
+### Todos
+
+* eslint a11y
+
+## License
+
+MIT
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
