@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, prettyDOM } from "@testing-library/react";
 import {
   SetStep,
   WizardContext,
@@ -10,6 +10,7 @@ import {
 } from "../../../../context/UserDetailsContext";
 import { Step } from "../../../../hooks/useWizard";
 import { Edit, errorMsg, firstNameTestID } from "./Edit";
+import { namespace } from "../Details";
 jest.mock("../../../../hooks/apis/useFetchDivisions", () => ({
   useFetchDivisions: () => ({
     endDivisions: [{ id: "2a" }, { id: "3a" }],
@@ -48,7 +49,7 @@ describe("<Edit> component", () => {
     // clicks on Save btn triggers error message
     expect(screen.queryByText(errorMsg)).not.toBeInTheDocument();
     fireEvent.click(screen.getByText(btnName));
-    expect(screen.queryByText(errorMsg)).toBeInTheDocument();
+    expect(screen.getByText(errorMsg)).toBeInTheDocument();
   });
   it("renders when first name is not empty and saves new name after clicks on Save", async () => {
     const userCtx = {
@@ -65,11 +66,14 @@ describe("<Edit> component", () => {
     // displays first name from context
     const firstNameEl = await screen.findByTestId(firstNameTestID);
     expect(firstNameEl).toHaveValue(userCtx.firstName);
-    // clicks on Save btn saves new first name
+    // change first name
     fireEvent.change(firstNameEl, { target: { value: newName } });
+    // cancel to have the step to completed
+    fireEvent.click(screen.getByText("Cancel"));
+    expect(wizardCtx.setStep).toHaveBeenNthCalledWith(1, Step.Completed);
+    // clicks on Save btn saves new first name
     fireEvent.click(screen.getByText(btnName));
     expect(screen.queryByText(errorMsg)).not.toBeInTheDocument();
-    expect(wizardCtx.setStep).toBeCalledWith(Step.Completed);
-    expect(firstNameEl).toHaveValue(newName);
+    expect(wizardCtx.setStep).toHaveBeenNthCalledWith(2, Step.Completed);
   });
 });

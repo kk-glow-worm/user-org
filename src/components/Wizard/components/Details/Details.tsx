@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { capitalize } from "lodash";
 import { UserDetailsContext } from "../../../../context/UserDetailsContext";
 import { WizardContext, SetStep } from "../../../../context/WizardContext";
@@ -25,11 +25,15 @@ export const Details = () => {
     directUpperIDsToTop,
     divisionsObj,
   } = useFetchDivisions();
+  const divisionsForChart = useMemo(
+    () => [userDivisionID, ...directUpperIDsToTop].reverse(),
+    [userDivisionID, directUpperIDsToTop],
+  );
 
   return (
     <div data-testid={namespace}>
       <div className={styles.org}>
-        {[userDivisionID, ...directUpperIDsToTop].reverse().map((id) => (
+        {divisionsForChart.map((id) => (
           <DivisionCard divisionName={divisionsObj[id]?.name} key={id} />
         ))}
         <div className={styles.user}>

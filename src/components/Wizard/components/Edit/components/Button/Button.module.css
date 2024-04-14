@@ -1,0 +1,19 @@
+.btn {
+  background-color: #008d96;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  justify-content: center;
+  outline: 0;
+  border: 1px solid #008d96;
+  padding: 13px 20px;
+  margin-top: 22px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.btnSecondary {
+  composes: btn;
+  background-color: #fff;
+  color: #008d96;
+}

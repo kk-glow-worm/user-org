@@ -10,6 +10,8 @@ import {
 import { useFetchDivisions } from "../../../../hooks/apis/useFetchDivisions";
 import styles from "./Edit.module.css";
 import { RadioBtn } from "./components/RadioBtn";
+import { Label } from "./components/Label";
+import { Button } from "./components/Button";
 /*******************************************
  helpers
  *******************************************/
@@ -66,7 +68,7 @@ export const Edit = () => {
       data-testid={namespace}
     >
       <div className={styles.firstNameSection}>
-        <label className={styles.label}>First name:</label>
+        <Label>First name:</Label>
         <input
           data-testid={firstNameTestID}
           name={firstNameHTMLName}
@@ -79,6 +81,7 @@ export const Edit = () => {
           </p>
         )}
       </div>
+      <Label>Select one division:</Label>
       <div className={styles.divisionsSection}>
         {sortBy(endDivisions, "name").map(({ name, id }) => (
           <RadioBtn
@@ -90,9 +93,17 @@ export const Edit = () => {
           />
         ))}
       </div>
-      <button type="submit" className={styles.btn}>
-        Save
-      </button>
+      <div>
+        <Button
+          btnStyle="secondary"
+          handleClick={() => {
+            setStep(Step.Completed);
+          }}
+        >
+          Cancel
+        </Button>
+        <Button type="submit">Save</Button>
+      </div>
     </form>
   );
 };
