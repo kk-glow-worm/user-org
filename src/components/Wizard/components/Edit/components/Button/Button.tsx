@@ -17,14 +17,20 @@ interface IProps {
   type?: BtnType;
   handleClick?: () => void;
   btnStyle?: BtnStyle;
+  className?: string;
 }
 export const Button = ({
   children,
   type = "button",
   btnStyle = "primary",
   handleClick,
+  className = "",
 }: IProps) => (
-  <button className={getStyle(btnStyle)} onClick={handleClick} type={type}>
+  <button
+    className={`${getStyle(btnStyle)} ${className}`}
+    onClick={handleClick}
+    type={type}
+  >
     {children}
   </button>
 );

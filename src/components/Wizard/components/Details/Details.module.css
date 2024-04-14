@@ -23,11 +23,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: rgb(0, 141, 150);
-  width: 70%;
+  max-width: 70%;
 }
 .edit {
-  position: absolute;
-  right: 0;
   transform: scale(0.6);
 }
 .divisionName {

@@ -93,16 +93,20 @@ export const Edit = () => {
           />
         ))}
       </div>
-      <div>
-        <Button
-          btnStyle="secondary"
-          handleClick={() => {
-            setStep(Step.Completed);
-          }}
-        >
-          Cancel
-        </Button>
-        <Button type="submit">Save</Button>
+      <div className={styles.btnsSection}>
+        <div className={styles.cancelBtn}>
+          <Button
+            btnStyle="secondary"
+            handleClick={() => {
+              setStep(Step.Completed);
+            }}
+          >
+            Cancel
+          </Button>
+        </div>
+        <div className={styles.saveBtn}>
+          <Button type="submit">Save</Button>
+        </div>
       </div>
     </form>
   );

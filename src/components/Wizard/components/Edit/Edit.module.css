@@ -1,3 +1,6 @@
+@value breakpoints: "./values.module.css";
+@value md, lg from breakpoints;
+
 .firstNameSection {
   margin-bottom: 16px;
   display: flex;
@@ -27,4 +30,19 @@
   padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
+}
+.btnsSection {
+  @media only screen and (min-width: md) {
+    display: flex;
+  }
+}
+.cancelBtn {
+  @media only screen and (min-width: md) {
+    margin-right: 10px;
+  }
+}
+.saveBtn {
+  @media only screen and (min-width: md) {
+    margin-left: 10px;
+  }
 }
