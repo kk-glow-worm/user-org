@@ -1,5 +1,4 @@
-@value breakpoints: "./values.module.css";
-@value md, lg from breakpoints;
+@value md: 768px;
 
 .firstNameSection {
   margin-bottom: 16px;
