@@ -30,18 +30,15 @@
   display: flex;
   flex-wrap: wrap;
 }
-.btnsSection {
-  @media only screen and (min-width: md) {
+
+@media only screen and (min-width: md) {
+  .btnsSection {
     display: flex;
   }
-}
-.cancelBtn {
-  @media only screen and (min-width: md) {
+  .cancelBtn {
     margin-right: 10px;
   }
-}
-.saveBtn {
-  @media only screen and (min-width: md) {
+  .saveBtn {
     margin-left: 10px;
   }
 }
