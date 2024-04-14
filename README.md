@@ -6,7 +6,7 @@ Highlights:
 
 1. Lean stack: React, swr, typescript, css modules
 2. Main architecture solution: swr + context + custom hooks 
-3. Intentionally tried to avoid over-engineering, avoided redux/reducer/shared components/shared values etc, e.g.if a component is not being used in multiple components, it will be kept as a private component of is parent, instead of under a folder like ui-shared-components or ui-lib. Just so to keep this demo easier and clearer to follow
+3. Intentionally tried to avoid over-engineering, avoided redux/reducer/shared components/shared values etc, e.g.if a component is not being used in multiple components, it will be kept as a private component of is parent, instead of under a folder like ui-shared-components or ui-lib. Just so to keep this demo easier and clearer to follow. If there are things felt could be done differently, happy to discuss at next stage
 4. mutate swr local cache to simulate a POST call
 
 ### Directory Layout
